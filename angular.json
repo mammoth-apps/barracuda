@@ -127,5 +127,9 @@
       }
     }
   },
-  "defaultProject": "barracuda"
+  "defaultProject": "barracuda",
+  "cli": {
+    "analytics": "22f40e17-4d18-4321-969b-9b01f01d6e1d",
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
