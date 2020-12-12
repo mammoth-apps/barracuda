@@ -2,24 +2,21 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { LandingRoutingModule } from './launch-routing.module';
 import { LaunchPageComponent } from './launch.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
     LayoutModule,
     LandingRoutingModule,
   ],
-  declarations: [LaunchPageComponent],
+  declarations: [LaunchPageComponent, ToolbarComponent],
 })
 export class LaunchModule {}

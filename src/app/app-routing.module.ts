@@ -5,8 +5,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./launch/launch.module').then((m) => m.LaunchModule),
+      import('./features/launch/launch.module').then((m) => m.LaunchModule),
   },
+  { path: 'features', loadChildren: () => import('./features/features/features.module').then(m => m.FeaturesModule) },
+  { path: 'docs', loadChildren: () => import('./features/docs/docs.module').then(m => m.DocsModule) },
+  { path: 'log-in', loadChildren: () => import('./features/log-in/log-in.module').then(m => m.LogInModule) },
 ];
 
 @NgModule({
