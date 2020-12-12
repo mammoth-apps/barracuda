@@ -1,23 +1,6 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-type HttpClientOptions = {
-  headers?:
-    | HttpHeaders
-    | {
-        [header: string]: string | string[];
-      };
-  observe?: 'body';
-  params?:
-    | HttpParams
-    | {
-        [param: string]: string | string[];
-      };
-  reportProgress?: boolean;
-  responseType: 'arraybuffer';
-  withCredentials?: boolean;
-};
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
@@ -41,16 +24,14 @@ export class HttpService {
    *
    * @param {string} url
    * @param {Record<string, any>} [keyValueMap]
-   * @param {HttpClientOptions} options
    * @returns {Observable<TResponse>}
    * @memberof HttpService
    */
   public delete(
     url: string,
-    options: HttpClientOptions,
     keyValueMap?: Record<string, any>
   ): Observable<any> {
-    return this.httpClient.delete(this.formatUrl(url, keyValueMap), options);
+    return this.httpClient.delete(this.formatUrl(url, keyValueMap));
   }
 
   /**
@@ -66,14 +47,9 @@ export class HttpService {
   public post(
     url: string,
     body: any,
-    options: HttpClientOptions,
     keyValueMap?: Record<string, any>
   ): Observable<any> {
-    return this.httpClient.post(
-      this.formatUrl(url, keyValueMap),
-      body,
-      options
-    );
+    return this.httpClient.post(this.formatUrl(url, keyValueMap), body);
   }
 
   /**

@@ -4,7 +4,7 @@ import {
   ITransaction,
   ITransactionDetail,
   ITransactionQuery,
-} from '@mammoth/api-interfaces';
+} from '@mammoth-apps/api-interfaces';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../core';
 import { TransactionApiRoute } from './transaction-api.routes';

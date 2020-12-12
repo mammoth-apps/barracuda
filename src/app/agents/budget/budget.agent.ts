@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { IBudget, ICreateBudget, IUpdateBudget } from '@mammoth/api-interfaces';
+import {
+  IBudget,
+  ICreateBudget,
+  IUpdateBudget,
+} from '@mammoth-apps/api-interfaces';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../core';
 import { BudgetApiRoute } from './budget-api.routes';
