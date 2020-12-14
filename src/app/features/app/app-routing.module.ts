@@ -10,13 +10,22 @@ const routes: Routes = [
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
-    path: 'budget',
+    path: 'account',
     loadChildren: () =>
-      import('./budget/budget.module').then((m) => m.BudgetModule),
+      import('./account/account.module').then((m) => m.AccountModule),
   },
-  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
-  { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
-  { path: 'transactions', loadChildren: () => import('./transactions/transactions.module').then(m => m.TransactionsModule) },
+  {
+    path: 'category',
+    loadChildren: () =>
+      import('./category/category.module').then((m) => m.CategoryModule),
+  },
+  {
+    path: 'transactions',
+    loadChildren: () =>
+      import('./transactions/transactions.module').then(
+        (m) => m.TransactionsModule
+      ),
+  },
 ];
 
 @NgModule({

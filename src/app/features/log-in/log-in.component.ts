@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss']
+  styleUrls: ['./log-in.component.scss'],
 })
-export class LogInComponent implements OnInit {
+export class LogInComponent {
+  constructor(private authService: AuthService) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public onLoginClick(): void {
+    this.authService.loginWithRedirect({
+      redirect_uri: 'http://localhost:4200/app',
+    });
   }
-
 }
