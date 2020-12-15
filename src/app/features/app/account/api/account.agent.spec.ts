@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { SupportedAccountType } from '@mammoth/api-interfaces';
-import { HttpService } from '../../core';
+import { SupportedAccountType } from '@mammoth-apps/api-interfaces';
+import { HttpService } from '../../../../core';
 import { AccountAgent } from './account.agent';
 
 describe('AccountAgent', () => {
@@ -10,14 +10,14 @@ describe('AccountAgent', () => {
     TestBed.configureTestingModule({
       providers: [
         AccountAgent,
-        {
-          provide: HttpService,
-          useValue: {
-            get: jest.fn(),
-            post: jest.fn(),
-            delete: jest.fn(),
-          },
-        },
+        // {
+        //   provide: HttpService,
+        //   useValue: {
+        //     get: jest.fn(),
+        //     post: jest.fn(),
+        //     delete: jest.fn(),
+        //   },
+        // },
       ],
     });
     accountAgent = TestBed.inject(AccountAgent);

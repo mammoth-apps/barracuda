@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IAccount, ICreateAccount } from '@mammoth-apps/api-interfaces';
 import { Observable } from 'rxjs';
-import { HttpService } from '../../core';
+import { HttpService } from '../../../../core';
 import { AccountApiRoute } from './account-api-routes';
 
 @Injectable()
