@@ -27,7 +27,9 @@ const routes: Routes = [
   {
     path: 'app',
     loadChildren: () =>
-      import('./features/app/app.module').then((m) => m.AppModule),
+      import('./features/app/app-features.module').then(
+        (m) => m.AppFeaturesModule
+      ),
   },
 ];
 

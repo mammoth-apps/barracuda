@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AppFeaturesComponent } from './app-features.component';
 
 const routes: Routes = [
-  { path: '', component: AppComponent },
+  { path: '', component: AppFeaturesComponent },
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -32,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppFeaturesRoutingModule {}
