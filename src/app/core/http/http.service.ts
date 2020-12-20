@@ -1,56 +1,20 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-interface HttpClientOptions {
-  headers?:
-    | HttpHeaders
-    | {
-        [header: string]: string | string[];
-      };
-  observe?: 'body';
-  params?:
-    | HttpParams
-    | {
-        [param: string]: string | string[];
-      };
-  reportProgress?: boolean;
-  responseType: 'arraybuffer';
-  withCredentials?: boolean;
-}
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
   constructor(private httpClient: HttpClient) {}
 
-  /**
-   * Will execute a get request and format the URL
-   *
-   * @template TResponse An optional generic
-   * @param {string} url The string url which looks like 'api/v1/something/:id
-   * @param {Record<string, any>} [keyValueMap] A key value map with an 'id' property will replace the one in the url
-   * @returns {Observable<TResponse>}
-   * @memberof HttpService
-   */
   public get(url: string, keyValueMap?: Record<string, any>): Observable<any> {
     return this.httpClient.get(this.formatUrl(url, keyValueMap));
   }
 
-  /**
-   *
-   *
-   * @param {string} url
-   * @param {Record<string, any>} [keyValueMap]
-   * @param {HttpClientOptions} [options]
-   * @returns {Observable<TResponse>}
-   * @memberof HttpService
-   */
   public delete(
     url: string,
-    keyValueMap?: Record<string, any>,
-    options?: HttpClientOptions
+    keyValueMap?: Record<string, any>
   ): Observable<any> {
-    return this.httpClient.delete(this.formatUrl(url, keyValueMap), options);
+    return this.httpClient.delete(this.formatUrl(url, keyValueMap));
   }
 
   /**
@@ -66,14 +30,9 @@ export class HttpService {
   public post(
     url: string,
     body: any,
-    keyValueMap?: Record<string, any>,
-    options?: HttpClientOptions
+    keyValueMap?: Record<string, any>
   ): Observable<any> {
-    return this.httpClient.post(
-      this.formatUrl(url, keyValueMap),
-      body,
-      options
-    );
+    return this.httpClient.post(this.formatUrl(url, keyValueMap), body);
   }
 
   /**

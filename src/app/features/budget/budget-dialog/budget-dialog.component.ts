@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IBudget, ICreateBudget } from '@mammoth-apps/api-interfaces';
 
 interface BudgetDialogComponentData {
-  budget?: IBudget;
+  selectedBudget?: IBudget;
 }
 
 @Component({
@@ -12,14 +12,14 @@ interface BudgetDialogComponentData {
   styleUrls: ['./budget-dialog.component.css'],
 })
 export class BudgetDialogComponent {
-  private readonly existingBudget: IBudget | null = null;
-  public budgetTitle: string;
+  private readonly existingBudget: IBudget | undefined = undefined;
+  public budgetTitle = '';
 
   constructor(
     public dialogRef: MatDialogRef<BudgetDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: BudgetDialogComponentData
   ) {
-    this.existingBudget = this.data.budget;
+    this.existingBudget = this.data.selectedBudget;
     if (this.existingBudget) {
       this.budgetTitle = this.existingBudget.name;
     }

@@ -7,9 +7,9 @@
     <app-budget-tile
       *ngFor="let budget of budgets$ | async"
       [budgetDetail]="budget"
-      (onSelect)="onSelect($event)"
-      (onDelete)="deleteBudget($event)"
-      (onEdit)="updateBudget($event)"
+      (selectClick)="selectClick($event)"
+      (deleteClick)="deleteBudget($event)"
+      (editClick)="updateBudget($event)"
     ></app-budget-tile>
   </div>
 </div>

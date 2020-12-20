@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 import { IAccountState } from '../state/account.state';
 import { IMammothState } from '../state/mammoth.state';
 
-const selectAccounts = (state: IMammothState) => state.accounts;
+const selectAccounts = (state: IMammothState) => state.account;
 
 export const selectAccountList = createSelector(
   selectAccounts,

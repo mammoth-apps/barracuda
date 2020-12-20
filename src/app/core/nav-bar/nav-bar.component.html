@@ -1,16 +1,6 @@
 <div>
-  <button
-    mat-raised-button
-    (click)="authService.login()"
-    *ngIf="!authService.loggedIn"
-  >
+  <button mat-raised-button (click)="authService.loginWithRedirect()">
     Log In
   </button>
-  <button
-    mat-raised-button
-    (click)="authService.logout()"
-    *ngIf="authService.loggedIn"
-  >
-    Log Out
-  </button>
+  <button mat-raised-button (click)="authService.logout()">Log Out</button>
 </div>

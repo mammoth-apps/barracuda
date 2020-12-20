@@ -7,8 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./account-detail.component.scss'],
 })
 export class AccountDetailComponent {
-  public accountId: string;
-  constructor(private _activatedRoute: ActivatedRoute) {
-    this.accountId = this._activatedRoute.snapshot.paramMap.get('accountId');
+  public accountId: string | null;
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.accountId = this.activatedRoute.snapshot.paramMap.get('accountId');
   }
 }

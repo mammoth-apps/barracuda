@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IAccount } from '@mammoth-apps/api-interfaces';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { GetAccountList } from '../../../ngrx-store/actions/account.actions';
-import { selectAccountList } from '../../../ngrx-store/selectors/account.selectors';
+import { AccountActions } from 'src/app/ngrx-store/actions';
+import { selectAccountList } from 'src/app/ngrx-store/selectors/account.selectors';
 import { IMammothState } from '../../../ngrx-store/state/mammoth.state';
 
 @Component({
@@ -24,7 +24,7 @@ export class AccountListComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.store.dispatch(GetAccountList());
+    this.store.dispatch(AccountActions.loadAccounts());
   }
 
   public onAccountClick(account: IAccount): void {

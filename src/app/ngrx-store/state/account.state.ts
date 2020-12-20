@@ -6,6 +6,6 @@ export interface IAccountState {
 }
 
 export const initialAccountState: IAccountState = {
-  accounts: null,
-  selectedAccount: null,
+  accounts: [],
+  selectedAccount: {} as IAccount,
 };

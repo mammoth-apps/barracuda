@@ -15,6 +15,19 @@ export const loadBudgetsFailure = createAction(
   '[Budget] Load Budgets Failure',
   props<{ errorMsg: string }>()
 );
+
+export const getBudget = createAction(
+  '[Budget] Get Budget',
+  props<{ id: string }>()
+);
+export const getBudgetSuccess = createAction(
+  '[Budget] Load Budget Success',
+  props<{ data: IBudget }>()
+);
+export const getBudgetFailure = createAction(
+  '[Budget] Load Budget Failure',
+  props<{ errorMsg: string }>()
+);
 export const deleteBudget = createAction(
   '[Budget] Delete Budget',
   props<{ id: string }>()

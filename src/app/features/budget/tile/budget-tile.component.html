@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ budgetDetail.name }}</mat-card-title>
+    <mat-card-subtitle>Authorized User</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Created - <em>{{ budgetDetail.createdDate | date }}</em>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (onClick)="selectClicked()">Select</button>
+    <button mat-raised-button variant="accent" (onClick)="editClicked()">
+      Edit
+    </button>
+    <button mat-raised-button variant="warn" (onClick)="deleteClicked()">
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from '@auth0/auth0-angular';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -23,6 +24,10 @@ import { mammothReducers } from './ngrx-store/reducers/mammoth.reducers';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    AuthModule.forRoot({
+      domain: 'dev-mammoth.auth0.com',
+      clientId: 'X8Nt1Ih9IhR4v2fmgrb0KelYrrt6mVWe',
+    }),
     StoreModule.forRoot(mammothReducers, {
       runtimeChecks: {
         strictActionWithinNgZone: true,

@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 import { IBudgetState } from '../state/budget.state';
 import { IMammothState } from '../state/mammoth.state';
 
-const selectBudgets = (state: IMammothState) => state.budgets;
+const selectBudgets = (state: IMammothState) => state.budget;
 
 export const selectBudgetList = createSelector(
   selectBudgets,

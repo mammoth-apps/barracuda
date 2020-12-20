@@ -4,12 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IBudget, ICreateBudget } from '@mammoth-apps/api-interfaces';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import {
-  CreateBudget,
-  DeleteBudget,
-  GetBudgets,
-  UpdateBudget,
-} from '../../ngrx-store/actions/budget.actions';
+import { BudgetActions } from 'src/app/ngrx-store/actions';
 import { selectBudgetList } from '../../ngrx-store/selectors/budget.selectors';
 import { IMammothState } from '../../ngrx-store/state/mammoth.state';
 import { BudgetDialogComponent } from './budget-dialog/budget-dialog.component';
@@ -26,73 +21,45 @@ export class BudgetComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private _store: Store<IMammothState>
+    private store: Store<IMammothState>
   ) {
-    this.budgets$ = this._store.pipe(select(selectBudgetList));
+    this.budgets$ = this.store.pipe(select(selectBudgetList));
   }
 
-  /**
-   * Lifecycle Hook - on init get all the budgets.
-   *
-   * @memberof BudgetComponent
-   */
   public ngOnInit(): void {
-    this._store.dispatch(new GetBudgets());
+    this.store.dispatch(BudgetActions.loadBudgets());
   }
 
-  /**
-   * Navigate to the selected budget
-   *
-   * @param {string} budgetId Selected budget Id to navigate to
-   * @memberof BudgetComponent
-   */
-  public onSelect(budgetId: string): void {
+  public selectClick(budgetId: string): void {
     this.router.navigate(['v1', budgetId], {
       relativeTo: this.activatedRoute,
     });
   }
 
-  /**
-   * Deletes a budget on click
-   *
-   * @param {IBudget} budget Delete budget data
-   * @memberof BudgetComponent
-   */
-  public deleteBudget(budget: IBudget): void {
-    this._store.dispatch(new DeleteBudget(budget.id));
+  public deleteBudget(id: string): void {
+    this.store.dispatch(BudgetActions.deleteBudget({ id }));
   }
 
-  /**
-   * Add a new budget from the response of a dialog
-   *
-   * @memberof BudgetComponent
-   */
   public addNewBudget(): void {
     const dialogRef = this.dialog.open(BudgetDialogComponent, {
       data: {},
     });
 
-    dialogRef.afterClosed().subscribe((result: ICreateBudget | null) => {
-      if (result) {
-        this._store.dispatch(new CreateBudget(result));
+    dialogRef.afterClosed().subscribe((budget: ICreateBudget | null) => {
+      if (budget) {
+        this.store.dispatch(BudgetActions.createBudget({ budget }));
       }
     });
   }
 
-  /**
-   * Function to edit a budget.
-   *
-   * @param {IBudget} budget
-   * @memberof BudgetComponent
-   */
-  public updateBudget(budget: IBudget): void {
+  public updateBudget(selectedBudget: IBudget): void {
     const dialogRef = this.dialog.open(BudgetDialogComponent, {
-      data: { budget },
+      data: { selectedBudget },
     });
 
-    dialogRef.afterClosed().subscribe((result: IBudget | null) => {
-      if (result) {
-        this._store.dispatch(new UpdateBudget(result));
+    dialogRef.afterClosed().subscribe((budget: IBudget | null) => {
+      if (budget) {
+        this.store.dispatch(BudgetActions.updateBudget({ budget }));
       }
     });
   }

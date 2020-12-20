@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./transaction-grid.component.scss'],
 })
 export class TransactionGridComponent implements OnInit {
-  @Input() accountId: string;
+  @Input() accountId: string | null = null;
   constructor() {}
 
   ngOnInit(): void {
