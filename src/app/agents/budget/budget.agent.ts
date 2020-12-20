@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   IBudget,
   ICreateBudget,
+  IDeleteResponse,
   IUpdateBudget,
 } from '@mammoth-apps/api-interfaces';
 import { Observable } from 'rxjs';
@@ -22,7 +23,7 @@ export class BudgetAgent {
     });
   }
 
-  public deleteBudget(budgetId: string): Observable<void> {
+  public deleteBudget(budgetId: string): Observable<IDeleteResponse> {
     return this.httpService.delete(BudgetApiRoute.DeleteBudget, {
       budgetId,
     });

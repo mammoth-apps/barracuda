@@ -1,2 +1,2 @@
-export { AccountAgent } from '../features/app/account/api/account.agent';
+export { AccountAgent } from './account/account.agent';
 export { BudgetAgent } from './budget/budget.agent';

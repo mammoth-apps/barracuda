@@ -1,6 +1,23 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+interface HttpClientOptions {
+  headers?:
+    | HttpHeaders
+    | {
+        [header: string]: string | string[];
+      };
+  observe?: 'body';
+  params?:
+    | HttpParams
+    | {
+        [param: string]: string | string[];
+      };
+  reportProgress?: boolean;
+  responseType: 'arraybuffer';
+  withCredentials?: boolean;
+}
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
@@ -24,14 +41,16 @@ export class HttpService {
    *
    * @param {string} url
    * @param {Record<string, any>} [keyValueMap]
+   * @param {HttpClientOptions} [options]
    * @returns {Observable<TResponse>}
    * @memberof HttpService
    */
   public delete(
     url: string,
-    keyValueMap?: Record<string, any>
+    keyValueMap?: Record<string, any>,
+    options?: HttpClientOptions
   ): Observable<any> {
-    return this.httpClient.delete(this.formatUrl(url, keyValueMap));
+    return this.httpClient.delete(this.formatUrl(url, keyValueMap), options);
   }
 
   /**
@@ -39,17 +58,22 @@ export class HttpService {
    *
    * @param {string} url Url to fire your post request at
    * @param {*} body Body parameters
-   * @param {HttpClientOptions} [options] Optional client options
    * @param {Record<string, any>} [keyValueMap] Used to replace placeholders in the url
+   * @param {HttpClientOptions} [options] Optional client options
    * @returns {Observable<any>}
    * @memberof HttpService
    */
   public post(
     url: string,
     body: any,
-    keyValueMap?: Record<string, any>
+    keyValueMap?: Record<string, any>,
+    options?: HttpClientOptions
   ): Observable<any> {
-    return this.httpClient.post(this.formatUrl(url, keyValueMap), body);
+    return this.httpClient.post(
+      this.formatUrl(url, keyValueMap),
+      body,
+      options
+    );
   }
 
   /**

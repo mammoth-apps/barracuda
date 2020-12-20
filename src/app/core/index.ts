@@ -1,3 +1,4 @@
 export * from './auth';
-export * from './core.module';
 export * from './http';
+export * from './nav-bar';
+export * from './core.module';
