@@ -1,20 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AccountModule } from './account/account.module';
-import { BudgetModule } from './budget/budget.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { CommonModule } from '@angular/common';
+
 import { FeaturesRoutingModule } from './features-routing.module';
-import { TransactionsModule } from './transactions';
+import { FeaturesComponent } from './features.component';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [FeaturesComponent],
   imports: [
-    AccountModule,
-    BudgetModule,
     CommonModule,
-    DashboardModule,
-    FeaturesRoutingModule,
-    TransactionsModule,
-  ],
+    FeaturesRoutingModule
+  ]
 })
-export class FeaturesModule {}
+export class FeaturesModule { }

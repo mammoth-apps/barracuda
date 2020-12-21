@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeaturesComponent } from './features.component';
 
-const routes: Routes = [{ path: '', component: FeaturesComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./budget/budget.module').then((m) => m.BudgetModule),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FeaturesRoutingModule {}
+export class BarracudaRoutingModule {}

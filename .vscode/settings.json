@@ -1,7 +1,8 @@
 {
   "cSpell.words": [
     "Serializability",
-    "ngrx"
+    "ngrx",
+    "sidenav"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
