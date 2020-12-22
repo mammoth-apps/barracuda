@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@auth0/auth0-angular';
 import { Subscription } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { AuthService } from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-site-landing',

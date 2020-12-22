@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthService } from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-getting-started',
@@ -10,8 +10,6 @@ export class GettingStartedComponent {
   constructor(private authService: AuthService) {}
 
   public loginClicked(): void {
-    this.authService.loginWithRedirect({
-      redirect_uri: window.location.origin + '/app',
-    });
+    this.authService.login();
   }
 }
