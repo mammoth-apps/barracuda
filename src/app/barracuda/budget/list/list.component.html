@@ -1,1 +1,14 @@
-<p>list works!</p>
+<div>
+  <div class="budget-card-container">
+    <app-budget-card
+      *ngFor="let budget of budgets$ | async"
+      [budgetDetail]="budget"
+      (selectClick)="selectClick($event)"
+      (deleteClick)="deleteBudget($event)"
+      (editClick)="updateBudget($event)"
+    ></app-budget-card>
+  </div>
+  <button mat-raised-button (click)="addNewBudget()">
+    <mat-icon>add</mat-icon> New Budget
+  </button>
+</div>

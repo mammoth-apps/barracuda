@@ -9,11 +9,11 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (onClick)="selectClicked()">Select</button>
-    <button mat-raised-button variant="accent" (onClick)="editClicked()">
+    <button mat-raised-button (click)="selectClicked($event)">Select</button>
+    <button mat-raised-button variant="accent" (click)="editClicked($event)">
       Edit
     </button>
-    <button mat-raised-button variant="warn" (onClick)="deleteClicked()">
+    <button mat-raised-button variant="warn" (click)="deleteClicked($event)">
       Delete
     </button>
   </mat-card-actions>

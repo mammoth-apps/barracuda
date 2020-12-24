@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IBudget } from '@mammoth-apps/api-interfaces';
 
 @Component({
-  selector: 'app-budget-tile',
-  templateUrl: './budget-tile.component.html',
-  styleUrls: ['./budget-tile.component.scss'],
+  selector: 'app-budget-card',
+  templateUrl: './budget-card.component.html',
+  styleUrls: ['./budget-card.component.scss'],
 })
-export class BudgetTileComponent {
+export class BudgetCardComponent {
   @Input() budgetDetail: IBudget = {} as IBudget;
   @Output() deleteClick: EventEmitter<string> = new EventEmitter();
   @Output() selectClick: EventEmitter<string> = new EventEmitter();

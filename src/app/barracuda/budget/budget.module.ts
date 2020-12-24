@@ -9,12 +9,12 @@ import { BudgetAgent } from '../../agents';
 import { BudgetRoutingModule } from './budget-routing.module';
 import { BudgetComponent } from './budget.component';
 import { BudgetService } from './budget.service';
-import { BudgetTileComponent } from './card';
+import { BudgetCardComponent } from './card/budget-card.component';
 import { BudgetDialogModule } from './dialog/budget-dialog.module';
 import { ListComponent } from './list/list.component';
 
 @NgModule({
-  declarations: [BudgetComponent, BudgetTileComponent, ListComponent],
+  declarations: [BudgetComponent, BudgetCardComponent, ListComponent],
   imports: [
     BudgetDialogModule,
     BudgetRoutingModule,

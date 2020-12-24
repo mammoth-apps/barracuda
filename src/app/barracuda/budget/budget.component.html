@@ -1,15 +1,3 @@
 <div>
-  <h3>Please select your budget</h3>
-  <button mat-raised-button (click)="addNewBudget()">
-    <mat-icon>add</mat-icon> New Budget
-  </button>
-  <div class="budget-card-container">
-    <app-budget-tile
-      *ngFor="let budget of budgets$ | async"
-      [budgetDetail]="budget"
-      (selectClick)="selectClick($event)"
-      (deleteClick)="deleteBudget($event)"
-      (editClick)="updateBudget($event)"
-    ></app-budget-tile>
-  </div>
+  <app-budget-list></app-budget-list>
 </div>
