@@ -1,0 +1,8 @@
+<button class="account-button" mat-button (click)="onAccountClick(account)">
+  <div class="account-details">
+    {{ account.name }}
+    <span [ngClass]="{ negative: account.balance <= 0 }"
+      >${{ account.balance.toFixed(2) }}</span
+    >
+  </div>
+</button>

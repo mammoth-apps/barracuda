@@ -1,0 +1,14 @@
+.account-button {
+  padding: 0;
+  width: 100%;
+  .account-details {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .negative {
+      color: red;
+    }
+  }
+}

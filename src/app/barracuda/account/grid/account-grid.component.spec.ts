@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { AccountDetailComponent } from './account-detail.component';
+import { AccountGridComponent } from './account-grid.component';
 
-describe('AccountDetailComponent', () => {
-  let component: AccountDetailComponent;
-  let fixture: ComponentFixture<AccountDetailComponent>;
+describe('AccountGridComponent', () => {
+  let component: AccountGridComponent;
+  let fixture: ComponentFixture<AccountGridComponent>;
 
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [AccountDetailComponent],
+        declarations: [AccountGridComponent],
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccountDetailComponent);
+    fixture = TestBed.createComponent(AccountGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

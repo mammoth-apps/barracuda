@@ -4,12 +4,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { TransactionsModule } from '../transactions';
 import { AccountRoutingModule } from './account-routing.module';
-import { AccountDetailComponent } from './detail-item/account-detail.component';
+import { AccountGridComponent } from './grid/account-grid.component';
+import { AccountListItemComponent } from './list-item/list-item.component';
 import { AccountListComponent } from './list/account-list.component';
 
 @NgModule({
-  declarations: [AccountListComponent, AccountDetailComponent],
-  exports: [AccountListComponent, AccountDetailComponent],
+  declarations: [
+    AccountListComponent,
+    AccountGridComponent,
+    AccountListItemComponent,
+  ],
+  exports: [AccountListComponent, AccountGridComponent],
   imports: [
     AccountRoutingModule,
     CommonModule,

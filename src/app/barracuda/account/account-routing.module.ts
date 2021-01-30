@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountDetailComponent } from './detail-item/account-detail.component';
+import { AccountGridComponent } from './grid/account-grid.component';
 
 const routes: Routes = [
   {
     path: ':accountId',
-    component: AccountDetailComponent,
+    component: AccountGridComponent,
   },
 ];
 
