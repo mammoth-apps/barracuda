@@ -16,6 +16,13 @@ export const loadBudgetsFailure = createAction(
   props<{ errorMsg: string }>()
 );
 
+export const setSelectedBudget = createAction(
+  '[Budget] Set Selected Budget',
+  props<{
+    id: string;
+  }>()
+);
+
 export const getBudget = createAction(
   '[Budget] Get Budget',
   props<{ id: string }>()

@@ -32,6 +32,7 @@ export class ListComponent implements OnInit {
   }
 
   public selectClick(budgetId: string): void {
+    this.store.dispatch(BudgetActions.setSelectedBudget({ id: budgetId }));
     this.router.navigate(['v1', budgetId], {
       relativeTo: this.activatedRoute,
     });

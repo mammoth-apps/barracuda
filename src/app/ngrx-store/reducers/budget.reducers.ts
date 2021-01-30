@@ -1,3 +1,4 @@
+import { IBudget } from '@mammoth-apps/api-interfaces';
 import { createReducer, on } from '@ngrx/store';
 import { BudgetActions } from '../actions';
 import { initialBudgetState } from '../state/budget.state';
@@ -7,6 +8,12 @@ export const budgetReducer = createReducer(
   on(BudgetActions.createBudgetSuccess, (state, action) => ({
     ...state,
     budgets: [...state.budgets, action.data],
+  })),
+  on(BudgetActions.setSelectedBudget, (state, action) => ({
+    ...state,
+    selectedBudget:
+      state.budgets.find((budget) => budget.id === action.id) ??
+      ({} as IBudget),
   })),
   on(BudgetActions.createBudgetFailure, (state, action) => ({
     ...state,
