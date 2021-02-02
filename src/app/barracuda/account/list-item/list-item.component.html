@@ -1,4 +1,4 @@
-<button class="account-button" mat-button (click)="onAccountClick(account)">
+<button class="account-button" mat-button (click)="onAccountClick()">
   <div class="account-details">
     {{ account.name }}
     <span [ngClass]="{ negative: account.balance <= 0 }"
